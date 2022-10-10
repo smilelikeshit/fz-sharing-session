@@ -3,14 +3,13 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-app_port: ":1313"
-containerPort: "1313"
+containerPort: 80
 
 image:
-  repository: insignficant/fz-sharing-session
+  repository: nginx
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
