@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  labels:
+    app: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+      tier: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: app
+        tier: mysql
+    spec:
+      containers:
+      - image: insignficant/fz-sharing-session:latest
+        name: app 
+        ports:
+          - containerPort: 80
+        env:
+          - name: APP_PORT
+            value: ":80"
